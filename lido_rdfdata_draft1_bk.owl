@@ -1,0 +1,500 @@
+@prefix : <http://www.exemple.org/lido#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.example.org/lido> .
+
+<http://www.example.org/lido> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://lexvo.org/ontology#language
+<http://lexvo.org/ontology#language> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.exemple.org/lido#abbreviation
+:abbreviation rdf:type owl:ObjectProperty ;
+              rdfs:domain :Term ;
+              rdfs:range :Abbreviation .
+
+
+###  http://www.exemple.org/lido#asAClassIsA
+:asAClassIsA rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :concept-conceptRelations ;
+             rdfs:comment "lido database: (as a class) is a  (in Relations table)" .
+
+
+###  http://www.exemple.org/lido#concept-conceptRelations
+:concept-conceptRelations rdf:type owl:ObjectProperty ;
+                          rdfs:domain :Concept ;
+                          rdfs:range :Concept .
+
+
+###  http://www.exemple.org/lido#contrastsMinimallyWith
+:contrastsMinimallyWith rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf :concept-conceptRelations ;
+                        rdfs:comment "lido database: contrasts minimally with  (in Relations table)" .
+
+
+###  http://www.exemple.org/lido#hasID
+:hasID rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf owl:topObjectProperty ;
+       rdfs:domain :Concept ,
+                   :Term ;
+       rdfs:range :Identifier .
+
+
+###  http://www.exemple.org/lido#isAClassOf
+:isAClassOf rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :concept-conceptRelations ;
+            rdfs:comment "lido database: is a class of (in Relations table)" .
+
+
+###  http://www.exemple.org/lido#isAKindOf
+:isAKindOf rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :concept-conceptRelations ;
+           rdfs:comment "lido database: is a (kind of)  (in Relations table)" .
+
+
+###  http://www.exemple.org/lido#isAbstractNounOf
+:isAbstractNounOf rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :term-termRelation ;
+                  rdfs:comment "lido database: is abstract noun of (in Relations table)" .
+
+
+###  http://www.exemple.org/lido#isConcreteNounOf
+:isConcreteNounOf rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :term-termRelation ;
+                  rdfs:comment "lido database: is concrete noun of (in Relations table)" .
+
+
+###  http://www.exemple.org/lido#isCross-RelatedWith
+:isCross-RelatedWith rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf :concept-conceptRelations ;
+                     rdfs:comment "lido database: is cross-related with  (in Relations table)" .
+
+
+###  http://www.exemple.org/lido#isElementOfTheRelation
+:isElementOfTheRelation rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf :concept-conceptRelations ;
+                        rdfs:comment "lido database: is element of the relation  (in Relations table)" .
+
+
+###  http://www.exemple.org/lido#isOperatorOf
+:isOperatorOf rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :concept-conceptRelations ;
+              rdfs:comment "lido database: is operator of  (in Relations table)" .
+
+
+###  http://www.exemple.org/lido#isPartOf
+:isPartOf rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :concept-conceptRelations ;
+          rdfs:comment "lido database: is part of  (in Relations table)" .
+
+
+###  http://www.exemple.org/lido#isProperty-AspectOf
+:isProperty-AspectOf rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf :concept-conceptRelations ;
+                     rdfs:comment "lido database: is property/aspect of  (in Relations table)" .
+
+
+###  http://www.exemple.org/lido#isRepresentativeOf
+:isRepresentativeOf rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf :concept-conceptRelations ;
+                    rdfs:comment "lido database: is representative of  (in Relations table)" .
+
+
+###  http://www.exemple.org/lido#isResultOf
+:isResultOf rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :concept-conceptRelations ;
+            rdfs:comment "lido database: is result of  (in Relations table)" .
+
+
+###  http://www.exemple.org/lido#isSubjectOfDiscipline
+:isSubjectOfDiscipline rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf :concept-conceptRelations ;
+                       rdfs:comment "lido database: is subject of discipline  (in Relations table)" .
+
+
+###  http://www.exemple.org/lido#lastEditor
+:lastEditor rdf:type owl:ObjectProperty ;
+            rdfs:domain :Concept ;
+            rdfs:range :Editor ;
+            rdfs:comment "lido database: LastEditor (in Concepts table)" .
+
+
+###  http://www.exemple.org/lido#manifests
+:manifests rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :concept-conceptRelations ;
+           rdfs:comment "lido database: manifests  (in Relations table)" .
+
+
+###  http://www.exemple.org/lido#marks
+:marks rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf :concept-conceptRelations ;
+       rdfs:comment "lido database: marks  (in Relations table)" .
+
+
+###  http://www.exemple.org/lido#non-stdTerm
+:non-stdTerm rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :term-conceptRelation ;
+             rdfs:comment "lido database: non-std  (in Relations table)" .
+
+
+###  http://www.exemple.org/lido#stdTerm
+:stdTerm rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :term-conceptRelation ;
+         rdfs:comment "lido database: std  (in Relations table)" .
+
+
+###  http://www.exemple.org/lido#term-conceptRelation
+:term-conceptRelation rdf:type owl:ObjectProperty ;
+                      rdfs:domain :Concept ;
+                      rdfs:range :Term .
+
+
+###  http://www.exemple.org/lido#term-termRelation
+:term-termRelation rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Term ;
+                   rdfs:range :Term .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.exemple.org/lido#analyticProcedure
+:analyticProcedure rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Concept ;
+                   rdfs:range rdf:PlainLiteral ;
+                   rdfs:comment "lido database: Analytic Procedures (in Concepts table)" .
+
+
+###  http://www.exemple.org/lido#definition
+:definition rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Concept ;
+            rdfs:range rdf:PlainLiteral ;
+            rdfs:comment "lido database: Definition (in Concept table)" .
+
+
+###  http://www.exemple.org/lido#deliminationAndHistory
+:deliminationAndHistory rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :Concept ;
+                        rdfs:range rdf:PlainLiteral ;
+                        rdfs:comment "lido database: Delimination & History (in Concepts table)" .
+
+
+###  http://www.exemple.org/lido#etymology
+:etymology rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Term ;
+           rdfs:range rdf:PlainLiteral ;
+           rdfs:comment "lido database: Etymology (in Terms table)" .
+
+
+###  http://www.exemple.org/lido#example
+:example rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Concept ;
+         rdfs:range rdf:PlainLiteral ;
+         rdfs:comment "lido database: Examples (in Concepts table)" .
+
+
+###  http://www.exemple.org/lido#lastEdit
+:lastEdit rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Concept ;
+          rdfs:range xsd:date ;
+          rdfs:comment "lido database: Date (in Concepts table)" .
+
+
+###  http://www.exemple.org/lido#phonmenology
+:phonmenology rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Concept ;
+              rdfs:range rdf:PlainLiteral ;
+              rdfs:comment "lido database: Phrnomenology (in Concepts table)" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.exemple.org/lido#Abbreviation
+:Abbreviation rdf:type owl:Class ;
+              rdfs:comment "lido database: Abbrev. (in Terms table)" .
+
+
+###  http://www.exemple.org/lido#Concept
+:Concept rdf:type owl:Class ;
+         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasID ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :ConceptID
+                         ] ;
+         rdfs:comment "lido database: Concept_name (in Concepts table)" .
+
+
+###  http://www.exemple.org/lido#ConceptID
+:ConceptID rdf:type owl:Class ;
+           rdfs:subClassOf :Identifier ;
+           rdfs:comment "lido database: Concept_ID (in Concepts table)" .
+
+
+###  http://www.exemple.org/lido#Editor
+:Editor rdf:type owl:Class ;
+        rdfs:comment "lido database: LastEditor (in Concepts table)" .
+
+
+###  http://www.exemple.org/lido#Identifier
+:Identifier rdf:type owl:Class .
+
+
+###  http://www.exemple.org/lido#Term
+:Term rdf:type owl:Class ;
+      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasID ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onClass :TermID
+                      ] ;
+      rdfs:comment "lido database: Ling. term (in Terms table)" .
+
+
+###  http://www.exemple.org/lido#TermID
+:TermID rdf:type owl:Class ;
+        rdfs:subClassOf :Identifier ;
+        rdfs:comment "lido database: Term_ID (in Terms table)" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.exemple.org/lido#Abbreviation_ABSL
+:Abbreviation_ABSL rdf:type owl:NamedIndividual ,
+                            :Abbreviation .
+
+
+###  http://www.exemple.org/lido#ChristianLehmann
+:ChristianLehmann rdf:type owl:NamedIndividual ,
+                           :Editor .
+
+
+###  http://www.exemple.org/lido#ConceptID_106
+:ConceptID_106 rdf:type owl:NamedIndividual ,
+                        :ConceptID .
+
+
+###  http://www.exemple.org/lido#ConceptID_1245
+:ConceptID_1245 rdf:type owl:NamedIndividual ,
+                         :ConceptID .
+
+
+###  http://www.exemple.org/lido#ConceptID_1297
+:ConceptID_1297 rdf:type owl:NamedIndividual ,
+                         :ConceptID .
+
+
+###  http://www.exemple.org/lido#ConceptID_1861
+:ConceptID_1861 rdf:type owl:NamedIndividual ,
+                         :ConceptID .
+
+
+###  http://www.exemple.org/lido#ConceptID_195
+:ConceptID_195 rdf:type owl:NamedIndividual ,
+                        :ConceptID .
+
+
+###  http://www.exemple.org/lido#ConceptID_2089
+:ConceptID_2089 rdf:type owl:NamedIndividual ,
+                         :ConceptID .
+
+
+###  http://www.exemple.org/lido#ConceptID_2179
+:ConceptID_2179 rdf:type owl:NamedIndividual ,
+                         :ConceptID .
+
+
+###  http://www.exemple.org/lido#ConceptID_2187
+:ConceptID_2187 rdf:type owl:NamedIndividual ,
+                         :ConceptID .
+
+
+###  http://www.exemple.org/lido#ConceptID_2192
+:ConceptID_2192 rdf:type owl:NamedIndividual ,
+                         :ConceptID .
+
+
+###  http://www.exemple.org/lido#ConceptID_2813
+:ConceptID_2813 rdf:type owl:NamedIndividual ,
+                         :ConceptID .
+
+
+###  http://www.exemple.org/lido#ConceptID_522
+:ConceptID_522 rdf:type owl:NamedIndividual ,
+                        :ConceptID .
+
+
+###  http://www.exemple.org/lido#Concept_Aspectus
+:Concept_Aspectus rdf:type owl:NamedIndividual ,
+                           :Concept ;
+                  :hasID :ConceptID_195 .
+
+
+###  http://www.exemple.org/lido#Concept_CategoriaNominalis
+:Concept_CategoriaNominalis rdf:type owl:NamedIndividual ,
+                                     :Concept ;
+                            :hasID :ConceptID_1245 .
+
+
+###  http://www.exemple.org/lido#Concept_CategoriaVerbi
+:Concept_CategoriaVerbi rdf:type owl:NamedIndividual ,
+                                 :Concept ;
+                        :hasID :ConceptID_2187 .
+
+
+###  http://www.exemple.org/lido#Concept_DerivationalCategory
+:Concept_DerivationalCategory rdf:type owl:NamedIndividual ,
+                                       :Concept ;
+                              :hasID :ConceptID_522 .
+
+
+###  http://www.exemple.org/lido#Concept_GenusVerborum
+:Concept_GenusVerborum rdf:type owl:NamedIndividual ,
+                                :Concept ;
+                       :hasID :ConceptID_2179 .
+
+
+###  http://www.exemple.org/lido#Concept_ModusActionis
+:Concept_ModusActionis rdf:type owl:NamedIndividual ,
+                                :Concept ;
+                       :contrastsMinimallyWith :Concept_Aspectus ;
+                       :hasID :ConceptID_106 ;
+                       :isAKindOf :Concept_CategoriaVerbi ,
+                                  :Concept_DerivationalCategory ;
+                       :isProperty-AspectOf :Concept_GenusVerborum ,
+                                            :Concept_Situation ;
+                       :isResultOf :Concept_VerbalDerivation ;
+                       :lastEditor :ChristianLehmann ;
+                       :manifests :Concept_Time-Stability ;
+                       :stdTerm :Term_AktionsartDE ,
+                                :Term_aktionsartEN ,
+                                :Term_aktionsartPT ;
+                       :definition "Aktionsart is a derivational verbal category that concerns the internal temporal structure of the situation core designated by the verb."@en ;
+                       :deliminationAndHistory "When the term Aktionsart was introduced by Karl Brugmann in 1885, it was meant to cover the whole area of aspectuality. Aktionsart as a semantic feature of verbs (including durative, iterative, ingressive and many others) was delimited against aspect as a grammatical category (covering perfective vs. imperfective) only in Agrell 1908. In Non-German linguistics, the distinction was at first not given much importance, and the term aspect has been used to cover everything that Brugmann had covered by aktionsart. The loan aktionsart was more often mentioned than used. More recently, aspectual character (Lyons 1977:706), aspectual class (sometimes abridged to aspectual) and actionality have been introduced as English counterparts to Agrell’s Aktionsart."@en ;
+                       :lastEdit "05-12-2011"^^xsd:date .
+
+
+###  http://www.exemple.org/lido#Concept_NomenSubstantivum
+:Concept_NomenSubstantivum rdf:type owl:NamedIndividual ,
+                                    :Concept ;
+                           :hasID :ConceptID_1297 .
+
+
+###  http://www.exemple.org/lido#Concept_Situation
+:Concept_Situation rdf:type owl:NamedIndividual ,
+                            :Concept ;
+                   :hasID :ConceptID_1861 .
+
+
+###  http://www.exemple.org/lido#Concept_StatusAbsolutusNominis
+:Concept_StatusAbsolutusNominis rdf:type owl:NamedIndividual ,
+                                         :Concept ;
+                                :hasID :ConceptID_2813 ;
+                                :isAKindOf :Concept_CategoriaNominalis ;
+                                :isProperty-AspectOf :Concept_NomenSubstantivum ;
+                                :lastEditor :ChristianLehmann ;
+                                :stdTerm :Term_Absolute ;
+                                :definition "A noun is absolute iff it is in its  independent (non-incorporated) and non-possessed form."@en ;
+                                :example "Nahuatl «oquich-tli» (man-ABS) 'man'" ;
+                                :lastEdit "08-05-2006"^^xsd:date ;
+                                :phonmenology "This is a morphological category of nouns, e.g., in Aztec languages."@en .
+
+
+###  http://www.exemple.org/lido#Concept_Time-Stability
+:Concept_Time-Stability rdf:type owl:NamedIndividual ,
+                                 :Concept ;
+                        :hasID :ConceptID_2089 .
+
+
+###  http://www.exemple.org/lido#Concept_VerbalDerivation
+:Concept_VerbalDerivation rdf:type owl:NamedIndividual ,
+                                   :Concept ;
+                          :hasID :ConceptID_2192 .
+
+
+###  http://www.exemple.org/lido#TermID_106
+:TermID_106 rdf:type owl:NamedIndividual ,
+                     :TermID .
+
+
+###  http://www.exemple.org/lido#TermID_2627
+:TermID_2627 rdf:type owl:NamedIndividual ,
+                      :TermID .
+
+
+###  http://www.exemple.org/lido#TermID_6230
+:TermID_6230 rdf:type owl:NamedIndividual ,
+                      :TermID .
+
+
+###  http://www.exemple.org/lido#TermID_7
+:TermID_7 rdf:type owl:NamedIndividual ,
+                   :TermID .
+
+
+###  http://www.exemple.org/lido#TermID_8769
+:TermID_8769 rdf:type owl:NamedIndividual ,
+                      :TermID .
+
+
+###  http://www.exemple.org/lido#Term_Absolute
+:Term_Absolute rdf:type owl:NamedIndividual ,
+                        :Term ;
+               :abbreviation :Abbreviation_ABSL ;
+               :hasID :TermID_7 .
+
+
+###  http://www.exemple.org/lido#Term_Absoluteness
+:Term_Absoluteness rdf:type owl:NamedIndividual ,
+                            :Term ;
+                   :hasID :TermID_8769 ;
+                   :isAbstractNounOf :Term_Absolute .
+
+
+###  http://www.exemple.org/lido#Term_AktionsartDE
+:Term_AktionsartDE rdf:type owl:NamedIndividual ,
+                            :Term ;
+                   :hasID :TermID_2627 ;
+                   <http://lexvo.org/ontology#language> <http://www.lexvo.org/page/iso639-3/deu> ;
+                   rdfs:comment "German term" .
+
+
+###  http://www.exemple.org/lido#Term_aktionsartEN
+:Term_aktionsartEN rdf:type owl:NamedIndividual ,
+                            :Term ;
+                   :hasID :TermID_106 ;
+                   <http://lexvo.org/ontology#language> <http://www.lexvo.org/page/iso639-3/eng> ;
+                   rdfs:comment "English term" .
+
+
+###  http://www.exemple.org/lido#Term_aktionsartPT
+:Term_aktionsartPT rdf:type owl:NamedIndividual ,
+                            :Term ;
+                   :hasID :TermID_6230 ;
+                   rdfs:comment "Portuguese term" .
+
+
+###  Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi
