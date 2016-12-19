@@ -1,0 +1,286 @@
+@prefix : <http://www.example.org/lido#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://www.example.org/lido> a owl:Ontology .
+# 
+# 
+# #################################################################
+# #
+# #    Datatypes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2001/XMLSchema#date
+
+xsd:date a rdfs:Datatype .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://www.example.org/lido#abbreviation
+
+:abbreviation a owl:ObjectProperty ;
+	rdfs:domain :Term ;
+	rdfs:range :Abbreviation .
+# 
+# http://www.example.org/lido#asAClassIsA
+
+:asAClassIsA a owl:ObjectProperty ;
+	rdfs:subPropertyOf :concept-conceptRelations ;
+	rdfs:comment "lido database: (as a class) is a  (in Relations table)" .
+# 
+# http://www.example.org/lido#concept-conceptRelations
+
+:concept-conceptRelations a owl:ObjectProperty ;
+	rdfs:domain :Concept ;
+	rdfs:range :Concept .
+# 
+# http://www.example.org/lido#contrastsMinimallyWith
+
+:contrastsMinimallyWith a owl:ObjectProperty ;
+	rdfs:subPropertyOf :concept-conceptRelations ;
+	rdfs:comment "lido database: contrasts minimally with  (in Relations table)" .
+# 
+# http://www.example.org/lido#hasID
+
+:hasID a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :Concept , :Term ;
+	rdfs:range :Identifier .
+# 
+# http://www.example.org/lido#isAClassOf
+
+:isAClassOf a owl:ObjectProperty ;
+	rdfs:subPropertyOf :concept-conceptRelations ;
+	rdfs:comment "lido database: is a class of (in Relations table)" .
+# 
+# http://www.example.org/lido#isAKindOf
+
+:isAKindOf a owl:ObjectProperty ;
+	rdfs:subPropertyOf :concept-conceptRelations ;
+	rdfs:comment "lido database: is a (kind of)  (in Relations table)" .
+# 
+# http://www.example.org/lido#isAbstractNounOf
+
+:isAbstractNounOf a owl:ObjectProperty ;
+	rdfs:subPropertyOf :term-termRelation ;
+	rdfs:comment "lido database: is abstract noun of (in Relations table)" .
+# 
+# http://www.example.org/lido#isConcreteNounOf
+
+:isConcreteNounOf a owl:ObjectProperty ;
+	rdfs:subPropertyOf :term-termRelation ;
+	rdfs:comment "lido database: is concrete noun of (in Relations table)" .
+# 
+# http://www.example.org/lido#isCross-RelatedWith
+
+:isCross-RelatedWith a owl:ObjectProperty ;
+	rdfs:subPropertyOf :concept-conceptRelations ;
+	rdfs:comment "lido database: is cross-related with  (in Relations table)" .
+# 
+# http://www.example.org/lido#isElementOfTheRelation
+
+:isElementOfTheRelation a owl:ObjectProperty ;
+	rdfs:subPropertyOf :concept-conceptRelations ;
+	rdfs:comment "lido database: is element of the relation  (in Relations table)" .
+# 
+# http://www.example.org/lido#isOperatorOf
+
+:isOperatorOf a owl:ObjectProperty ;
+	rdfs:subPropertyOf :concept-conceptRelations ;
+	rdfs:comment "lido database: is operator of  (in Relations table)" .
+# 
+# http://www.example.org/lido#isPartOf
+
+:isPartOf a owl:ObjectProperty ;
+	rdfs:subPropertyOf :concept-conceptRelations ;
+	rdfs:comment "lido database: is part of  (in Relations table)" .
+# 
+# http://www.example.org/lido#isProperty-AspectOf
+
+:isProperty-AspectOf a owl:ObjectProperty ;
+	rdfs:subPropertyOf :concept-conceptRelations ;
+	rdfs:comment "lido database: is property/aspect of  (in Relations table)" .
+# 
+# http://www.example.org/lido#isRepresentativeOf
+
+:isRepresentativeOf a owl:ObjectProperty ;
+	rdfs:subPropertyOf :concept-conceptRelations ;
+	rdfs:comment "lido database: is representative of  (in Relations table)" .
+# 
+# http://www.example.org/lido#isResultOf
+
+:isResultOf a owl:ObjectProperty ;
+	rdfs:subPropertyOf :concept-conceptRelations ;
+	rdfs:comment "lido database: is result of  (in Relations table)" .
+# 
+# http://www.example.org/lido#isSubjectOfDiscipline
+
+:isSubjectOfDiscipline a owl:ObjectProperty ;
+	rdfs:subPropertyOf :concept-conceptRelations ;
+	rdfs:comment "lido database: is subject of discipline  (in Relations table)" .
+# 
+# http://www.example.org/lido#lastEditor
+
+:lastEditor a owl:ObjectProperty ;
+	rdfs:domain :Concept ;
+	rdfs:range :Editor ;
+	rdfs:comment "lido database: LastEditor (in Concepts table)" .
+# 
+# http://www.example.org/lido#manifests
+
+:manifests a owl:ObjectProperty ;
+	rdfs:subPropertyOf :concept-conceptRelations ;
+	rdfs:comment "lido database: manifests  (in Relations table)" .
+# 
+# http://www.example.org/lido#marks
+
+:marks a owl:ObjectProperty ;
+	rdfs:subPropertyOf :concept-conceptRelations ;
+	rdfs:comment "lido database: marks  (in Relations table)" .
+# 
+# http://www.example.org/lido#non-stdTerm
+
+:non-stdTerm a owl:ObjectProperty ;
+	rdfs:subPropertyOf :term-conceptRelation ;
+	rdfs:comment "lido database: non-std  (in Relations table)" .
+# 
+# http://www.example.org/lido#sdtTerm
+
+:sdtTerm a owl:ObjectProperty ;
+	rdfs:subPropertyOf :term-conceptRelation ;
+	rdfs:comment "lido database: std  (in Relations table)" .
+# 
+# http://www.example.org/lido#term-conceptRelation
+
+:term-conceptRelation a owl:ObjectProperty ;
+	rdfs:domain :Concept ;
+	rdfs:range :Term .
+# 
+# http://www.example.org/lido#term-termRelation
+
+:term-termRelation a owl:ObjectProperty ;
+	rdfs:domain :Term ;
+	rdfs:range :Term .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://www.example.org/lido#analyticProcedure
+
+:analyticProcedure a owl:DatatypeProperty ;
+	rdfs:domain :Concept ;
+	rdfs:range rdf:PlainLiteral ;
+	rdfs:comment "lido database: Analytic Procedures (in Concepts table)" .
+# 
+# http://www.example.org/lido#definition
+
+:definition a owl:DatatypeProperty ;
+	rdfs:domain :Concept ;
+	rdfs:range rdf:PlainLiteral ;
+	rdfs:comment "lido database: Definition (in Concept table)" .
+# 
+# http://www.example.org/lido#deliminationAndHistory
+
+:deliminationAndHistory a owl:DatatypeProperty ;
+	rdfs:domain :Concept ;
+	rdfs:range rdf:PlainLiteral ;
+	rdfs:comment "lido database: Delimination & History (in Concepts table)" .
+# 
+# http://www.example.org/lido#etymology
+
+:etymology a owl:DatatypeProperty ;
+	rdfs:domain :Term ;
+	rdfs:range rdf:PlainLiteral ;
+	rdfs:comment "lido database: Etymology (in Terms table)" .
+# 
+# http://www.example.org/lido#example
+
+:example a owl:DatatypeProperty ;
+	rdfs:domain :Concept ;
+	rdfs:range rdf:PlainLiteral ;
+	rdfs:comment "lido database: Examples (in Concepts table)" .
+# 
+# http://www.example.org/lido#lastEdit
+
+:lastEdit a owl:DatatypeProperty ;
+	rdfs:domain :Concept ;
+	rdfs:range xsd:date ;
+	rdfs:comment "lido database: Date (in Concepts table)" .
+# 
+# http://www.example.org/lido#phonmenology
+
+:phonmenology a owl:DatatypeProperty ;
+	rdfs:domain :Concept ;
+	rdfs:range rdf:PlainLiteral ;
+	rdfs:comment "lido database: Phrnomenology (in Concepts table)" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://www.example.org/lido#Abbreviation
+
+:Abbreviation a owl:Class ;
+	rdfs:comment "lido database: Abbrev. (in Terms table)" .
+# 
+# http://www.example.org/lido#Concept
+
+:Concept a owl:Class ;
+	rdfs:comment "lido database: Concept_name (in Concepts table)" .
+# 
+# http://www.example.org/lido#ConceptID
+
+:ConceptID a owl:Class ;
+	rdfs:subClassOf :Identifier ;
+	rdfs:comment "lido database: Concept_ID (in Concepts table)" .
+# 
+# http://www.example.org/lido#Editor
+
+:Editor a owl:Class ;
+	rdfs:comment "lido database: LastEditor (in Concepts table)" .
+# 
+# http://www.example.org/lido#Identifier
+
+:Identifier a owl:Class .
+# 
+# http://www.example.org/lido#RelationID
+
+:RelationID a owl:Class ;
+	rdfs:subClassOf :Identifier ;
+	rdfs:comment "lido database: Relation_ID (in Relations table)" .
+# 
+# http://www.example.org/lido#Term
+
+:Term a owl:Class ;
+	rdfs:comment "lido database: Ling. term (in Terms table)" .
+# 
+# http://www.example.org/lido#TermID
+
+:TermID a owl:Class ;
+	rdfs:subClassOf :Identifier ;
+	rdfs:comment "lido database: Term_ID (in Terms table)" .
+# 
+# Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi
