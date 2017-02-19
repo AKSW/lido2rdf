@@ -246,7 +246,7 @@ lexvo:language a owl:ObjectProperty ;
 :analyticProcedure a owl:DatatypeProperty ;
 	rdfs:domain :Concept ;
 	rdfs:range rdf:PlainLiteral ;
-	rdfs:comment "lido database: Analytic Procedures (in Concepts table)" ;
+	rdfs:comment "Describes a procedure (e.g. linguistic tests, parameters, restrictions)  that is applied to analyse the formation, identification or usage of a concept."@en ;
 	rdfs:label "analytic procedure"@en .
 # 
 # http://lido.linguistic-lod.org/onlit#definition
@@ -254,7 +254,7 @@ lexvo:language a owl:ObjectProperty ;
 :definition a owl:DatatypeProperty ;
 	rdfs:domain :Concept ;
 	rdfs:range rdf:PlainLiteral ;
-	rdfs:comment "lido database: Definition (in Concept table)" ;
+	rdfs:comment "Provides a definition of a concept."@en ;
 	rdfs:label "definition"@en .
 # 
 # http://lido.linguistic-lod.org/onlit#deliminationAndHistory
@@ -262,7 +262,7 @@ lexvo:language a owl:ObjectProperty ;
 :deliminationAndHistory a owl:DatatypeProperty ;
 	rdfs:domain :Concept ;
 	rdfs:range rdf:PlainLiteral ;
-	rdfs:comment "lido database: Delimination & History (in Concepts table)" ;
+	rdfs:comment "Deliminates the concept and provides information on its evolution."@en ;
 	rdfs:label "delimination and history"@en .
 # 
 # http://lido.linguistic-lod.org/onlit#etymology
@@ -270,7 +270,7 @@ lexvo:language a owl:ObjectProperty ;
 :etymology a owl:DatatypeProperty ;
 	rdfs:domain :Term ;
 	rdfs:range rdf:PlainLiteral ;
-	rdfs:comment "lido database: Etymology (in Terms table)" ;
+	rdfs:comment "States etymological information of a term."@en ;
 	rdfs:label "etymology"@en .
 # 
 # http://lido.linguistic-lod.org/onlit#example
@@ -278,27 +278,14 @@ lexvo:language a owl:ObjectProperty ;
 :example a owl:DatatypeProperty ;
 	rdfs:domain :Concept ;
 	rdfs:range rdf:PlainLiteral ;
-	rdfs:comment "lido database: Examples (in Concepts table)" ;
+	rdfs:comment "Provides an example for a concept."@en ;
 	rdfs:label "example"@en .
 # 
 # http://lido.linguistic-lod.org/onlit#lastEdit
 
 :lastEdit a owl:DatatypeProperty ;
-	rdfs:domain _:genid1 .
-
-_:genid1 a owl:Class ;
-	owl:unionOf _:genid3 .
-
-_:genid3 a rdf:List ;
-	rdf:first :Concept ;
-	rdf:rest _:genid2 .
-
-_:genid2 a rdf:List ;
-	rdf:first :Term ;
-	rdf:rest rdf:nil .
-
-:lastEdit rdfs:range xsd:date ;
-	rdfs:comment "lido database: Date (in Concepts table)" ;
+	rdfs:range xsd:date ;
+	rdfs:comment "States the date of the last edit of a concept or term entry."@en ;
 	rdfs:label "last edit"@en .
 # 
 # http://lido.linguistic-lod.org/onlit#phonmenology
@@ -306,7 +293,7 @@ _:genid2 a rdf:List ;
 :phonmenology a owl:DatatypeProperty ;
 	rdfs:domain :Concept ;
 	rdfs:range rdf:PlainLiteral ;
-	rdfs:comment "lido database: Phrnomenology (in Concepts table)" ;
+	rdfs:comment "Provides further information on the description and/or classification of a concept."@en ;
 	rdfs:label "phenomenology"@en .
 # 
 # 
@@ -331,9 +318,9 @@ lexvo:Language a owl:Class .
 # http://lido.linguistic-lod.org/onlit#Concept
 
 :Concept a owl:Class ;
-	rdfs:subClassOf _:genid4 .
+	rdfs:subClassOf _:genid1 .
 
-_:genid4 a owl:Restriction ;
+_:genid1 a owl:Restriction ;
 	owl:onProperty :hasID ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onClass :ConceptID .
@@ -363,16 +350,16 @@ _:genid4 a owl:Restriction ;
 # http://lido.linguistic-lod.org/onlit#Term
 
 :Term a owl:Class ;
-	rdfs:subClassOf _:genid5 .
+	rdfs:subClassOf _:genid2 .
 
-_:genid5 a owl:Restriction ;
+_:genid2 a owl:Restriction ;
 	owl:onProperty :hasID ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onClass :TermID .
 
-:Term rdfs:subClassOf _:genid6 .
+:Term rdfs:subClassOf _:genid3 .
 
-_:genid6 a owl:Restriction ;
+_:genid3 a owl:Restriction ;
 	owl:onProperty :term-conceptRelation ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onClass :Concept .
