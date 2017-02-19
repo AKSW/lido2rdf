@@ -1,11 +1,13 @@
-@prefix : <http://www.example.org/lido#> .
+@prefix onlit: <http://lido.linguistic-lod.org/onlit#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix lexvo: <http://lexvo.org/ontology#> .
 
-<http://www.example.org/lido> a owl:Ontology .
+
+<http://lido.linguistic-lod.org/onlit#> a owl:Ontology .
 # 
 # 
 # #################################################################
@@ -28,177 +30,211 @@ xsd:date a rdfs:Datatype .
 # #################################################################
 # 
 # 
-# http://www.example.org/lido#abbreviation
+# http://lexvo.org/ontology#language
+
+lexvo:language a owl:ObjectProperty ;
+	rdfs:domain :Term ;
+	rdfs:range lexvo:Language .
+
+lexvo:Language a owl:Class .
+# 
+# http://lido.linguistic-lod.org/onlit#abbreviation
 
 :abbreviation a owl:ObjectProperty ;
 	rdfs:domain :Term ;
-	rdfs:range :Abbreviation .
+	rdfs:range :Abbreviation ;
+	rdfs:label "abbreviation"@en .
 # 
-# http://www.example.org/lido#asAClassIsA
+# http://lido.linguistic-lod.org/onlit#asAClassIsA
 
 :asAClassIsA a owl:ObjectProperty ;
 	rdfs:subPropertyOf :subordinatingRelation ;
 	a owl:AsymmetricProperty , owl:TransitiveProperty ;
-	rdfs:comment "lido database: (as a class) is a  (in Relations table)" , "logische eigenschaften: asymmetrisch, nicht katenativ, intransitiv, mehr-eindeutig" , "unterordnende relation" .
+	rdfs:comment "lido database: (as a class) is a  (in Relations table)" , "logische eigenschaften: asymmetrisch, nicht katenativ, intransitiv, mehr-eindeutig" , "unterordnende relation" ;
+	rdfs:label "as a class is a"@en .
 # 
-# http://www.example.org/lido#concept-conceptRelations
+# http://lido.linguistic-lod.org/onlit#concept-conceptRelation
 
-:concept-conceptRelations a owl:ObjectProperty , owl:AsymmetricProperty ;
+:concept-conceptRelation a owl:ObjectProperty , owl:AsymmetricProperty ;
 	rdfs:domain :Concept ;
-	rdfs:range :Concept .
+	rdfs:range :Concept ;
+	rdfs:label "concept-concept relations"@en .
 # 
-# http://www.example.org/lido#contrastsMinimallyWith
+# http://lido.linguistic-lod.org/onlit#contrastsMinimallyWith
 
 :contrastsMinimallyWith a owl:ObjectProperty ;
 	rdfs:subPropertyOf :coordinatingRelation ;
 	a owl:SymmetricProperty , owl:TransitiveProperty ;
-	rdfs:comment "lido database: contrasts minimally with  (in Relations table)" .
+	rdfs:comment "lido database: contrasts minimally with  (in Relations table)" ;
+	rdfs:label "contrasts minimally with"@en .
 # 
-# http://www.example.org/lido#coordinatingRelation
+# http://lido.linguistic-lod.org/onlit#coordinatingRelation
 
 :coordinatingRelation a owl:ObjectProperty ;
-	rdfs:subPropertyOf :concept-conceptRelations ;
-	a owl:SymmetricProperty , owl:TransitiveProperty .
+	rdfs:subPropertyOf :concept-conceptRelation ;
+	a owl:SymmetricProperty , owl:TransitiveProperty ;
+	rdfs:label "coordinating relation"@en .
 # 
-# http://www.example.org/lido#hasID
+# http://lido.linguistic-lod.org/onlit#hasID
 
 :hasID a owl:ObjectProperty ;
 	rdfs:subPropertyOf owl:topObjectProperty ;
 	rdfs:domain :Concept , :Term ;
-	rdfs:range :Identifier .
+	rdfs:range :Identifier ;
+	rdfs:label "has ID"@en .
 # 
-# http://www.example.org/lido#isAClassOf
+# http://lido.linguistic-lod.org/onlit#isAClassOf
 
 :isAClassOf a owl:ObjectProperty ;
 	rdfs:subPropertyOf :subordinatingRelation ;
 	a owl:AsymmetricProperty , owl:TransitiveProperty ;
-	rdfs:comment "lido database: is a class of (in Relations table)" , "logische eigenschaften: asymmetrisch, nicht katenativ, intransitiv, eindeutig" , "unterordnende relation" .
+	rdfs:comment "lido database: is a class of (in Relations table)" , "logische eigenschaften: asymmetrisch, nicht katenativ, intransitiv, eindeutig" , "unterordnende relation" ;
+	rdfs:label "is a class of"@en .
 # 
-# http://www.example.org/lido#isAKindOf
+# http://lido.linguistic-lod.org/onlit#isAKindOf
 
 :isAKindOf a owl:ObjectProperty ;
 	rdfs:subPropertyOf :subordinatingRelation ;
 	a owl:AsymmetricProperty , owl:TransitiveProperty ;
-	rdfs:comment "lido database: is a (kind of)  (in Relations table)" , "logische eigenschaften: asymmetrisch, katenativ, transitiv, mehr-mehrdeutig" , "unterordnende relation" .
+	rdfs:comment "lido database: is a (kind of)  (in Relations table)" , "logische eigenschaften: asymmetrisch, katenativ, transitiv, mehr-mehrdeutig" , "unterordnende relation" ;
+	rdfs:label "is a kind of"@en .
 # 
-# http://www.example.org/lido#isAbstractNounOf
+# http://lido.linguistic-lod.org/onlit#isAbstractNounOf
 
 :isAbstractNounOf a owl:ObjectProperty ;
 	rdfs:subPropertyOf :term-termRelation ;
-	rdfs:comment "lido database: is abstract noun of (in Relations table)" .
+	rdfs:comment "lido database: is abstract noun of (in Relations table)" ;
+	rdfs:label "is abstract noun of"@en .
 # 
-# http://www.example.org/lido#isConcreteNounOf
+# http://lido.linguistic-lod.org/onlit#isConcreteNounOf
 
 :isConcreteNounOf a owl:ObjectProperty ;
 	rdfs:subPropertyOf :term-termRelation ;
-	rdfs:comment "lido database: is concrete noun of (in Relations table)" .
+	rdfs:comment "lido database: is concrete noun of (in Relations table)" ;
+	rdfs:label "is concrete noun of"@en .
 # 
-# http://www.example.org/lido#isCross-RelatedWith
+# http://lido.linguistic-lod.org/onlit#isCross-RelatedWith
 
 :isCross-RelatedWith a owl:ObjectProperty ;
 	rdfs:subPropertyOf :coordinatingRelation ;
 	a owl:SymmetricProperty , owl:TransitiveProperty ;
-	rdfs:comment "lido database: is cross-related with  (in Relations table)" , "logische eigenschaften: symmetrisch, katenativ, intransitiv, mehr-mehrdeutig" , "querverweisende relation" .
+	rdfs:comment "lido database: is cross-related with  (in Relations table)" , "logische eigenschaften: symmetrisch, katenativ, intransitiv, mehr-mehrdeutig" , "querverweisende relation" ;
+	rdfs:label "is cross-related with"@en .
 # 
-# http://www.example.org/lido#isElementOfTheRelation
+# http://lido.linguistic-lod.org/onlit#isElementOfTheRelation
 
 :isElementOfTheRelation a owl:ObjectProperty ;
 	rdfs:subPropertyOf :subordinatingRelation ;
 	a owl:AsymmetricProperty , owl:TransitiveProperty ;
-	rdfs:comment "lido database: is element of the relation  (in Relations table)" , "logische eigenschaften: asymmetrisch, nicht katenativ, intransitiv, mehr-eindeutig" , "unterordnende relation" .
+	rdfs:comment "lido database: is element of the relation  (in Relations table)" , "logische eigenschaften: asymmetrisch, nicht katenativ, intransitiv, mehr-eindeutig" , "unterordnende relation" ;
+	rdfs:label "is element of relation"@en .
 # 
-# http://www.example.org/lido#isOperatorOf
+# http://lido.linguistic-lod.org/onlit#isOperatorOf
 
 :isOperatorOf a owl:ObjectProperty ;
 	rdfs:subPropertyOf :subordinatingRelation ;
 	a owl:AsymmetricProperty , owl:TransitiveProperty ;
-	rdfs:comment "lido database: is operator of  (in Relations table)" , "logische eigenschaften: asymmetrisch, nicht katenativ, intransitiv, eindeutig" , "unterordnende relation" .
+	rdfs:comment "lido database: is operator of  (in Relations table)" , "logische eigenschaften: asymmetrisch, nicht katenativ, intransitiv, eindeutig" , "unterordnende relation" ;
+	rdfs:label "is operator of"@en .
 # 
-# http://www.example.org/lido#isPartOf
+# http://lido.linguistic-lod.org/onlit#isPartOf
 
 :isPartOf a owl:ObjectProperty ;
 	rdfs:subPropertyOf :subordinatingRelation ;
 	a owl:AsymmetricProperty , owl:TransitiveProperty ;
-	rdfs:comment "lido database: is part of  (in Relations table)" , "logische eigenschaften: asymmetrisch, katenativ, transitiv, mehr-mehrdeutig" , "unterordnende relation" .
+	rdfs:comment "lido database: is part of  (in Relations table)" , "logische eigenschaften: asymmetrisch, katenativ, transitiv, mehr-mehrdeutig" , "unterordnende relation" ;
+	rdfs:label "is part of"@en .
 # 
-# http://www.example.org/lido#isProperty-AspectOf
+# http://lido.linguistic-lod.org/onlit#isProperty-AspectOf
 
 :isProperty-AspectOf a owl:ObjectProperty ;
 	rdfs:subPropertyOf :subordinatingRelation ;
 	a owl:AsymmetricProperty , owl:TransitiveProperty ;
-	rdfs:comment "lido database: is property/aspect of  (in Relations table)" , "logische eigenschaften: asymmetrisch, katenativ, intransitiv, mehr-mehrdeutig" , "unterordnende relation" .
+	rdfs:comment "lido database: is property/aspect of  (in Relations table)" , "logische eigenschaften: asymmetrisch, katenativ, intransitiv, mehr-mehrdeutig" , "unterordnende relation" ;
+	rdfs:label "is property or aspect of"@en .
 # 
-# http://www.example.org/lido#isRepresentativeOf
+# http://lido.linguistic-lod.org/onlit#isRepresentativeOf
 
 :isRepresentativeOf a owl:ObjectProperty ;
 	rdfs:subPropertyOf :subordinatingRelation ;
 	a owl:AsymmetricProperty , owl:TransitiveProperty ;
-	rdfs:comment "lido database: is representative of  (in Relations table)" , "logische eigenschaften: asymmetrisch, nicht katenativ, intransitiv, mehr-eindeutig" , "unterordnende relation" .
+	rdfs:comment "lido database: is representative of  (in Relations table)" , "logische eigenschaften: asymmetrisch, nicht katenativ, intransitiv, mehr-eindeutig" , "unterordnende relation" ;
+	rdfs:label "is representative of"@en .
 # 
-# http://www.example.org/lido#isResultOf
+# http://lido.linguistic-lod.org/onlit#isResultOf
 
 :isResultOf a owl:ObjectProperty ;
 	rdfs:subPropertyOf :subordinatingRelation ;
 	a owl:AsymmetricProperty , owl:TransitiveProperty ;
-	rdfs:comment "lido database: is result of  (in Relations table)" , "logische eigenschaften: asymmetrisch, nicht katenativ, intransitiv, mehr-eindeutig" , "unterordnende relation" .
+	rdfs:comment "lido database: is result of  (in Relations table)" , "logische eigenschaften: asymmetrisch, nicht katenativ, intransitiv, mehr-eindeutig" , "unterordnende relation" ;
+	rdfs:label "is result of"@en .
 # 
-# http://www.example.org/lido#isSubjectOfDiscipline
+# http://lido.linguistic-lod.org/onlit#isSubjectOfDiscipline
 
 :isSubjectOfDiscipline a owl:ObjectProperty ;
 	rdfs:subPropertyOf :subordinatingRelation ;
 	a owl:AsymmetricProperty , owl:TransitiveProperty ;
-	rdfs:comment "lido database: is subject of discipline  (in Relations table)" , "logische eigenschaften: asymmetrisch, katenativ, intransitiv, mehr-mehrdeutig" , "unterordnende relation" .
+	rdfs:comment "lido database: is subject of discipline  (in Relations table)" , "logische eigenschaften: asymmetrisch, katenativ, intransitiv, mehr-mehrdeutig" , "unterordnende relation" ;
+	rdfs:label "is subject of discipline"@en .
 # 
-# http://www.example.org/lido#lastEditor
+# http://lido.linguistic-lod.org/onlit#lastEditor
 
 :lastEditor a owl:ObjectProperty ;
 	rdfs:domain :Concept ;
 	rdfs:range :Editor ;
-	rdfs:comment "lido database: LastEditor (in Concepts table)" .
+	rdfs:comment "lido database: LastEditor (in Concepts table)" ;
+	rdfs:label "last editor"@en .
 # 
-# http://www.example.org/lido#manifests
+# http://lido.linguistic-lod.org/onlit#manifests
 
 :manifests a owl:ObjectProperty ;
 	rdfs:subPropertyOf :subordinatingRelation ;
 	a owl:AsymmetricProperty , owl:TransitiveProperty ;
-	rdfs:comment "lido database: manifests  (in Relations table)" , "logische eigenschaften: asymmetrisch, katenativ, transitiv, mehr-eindeutig" , "unterordnende relation" .
+	rdfs:comment "lido database: manifests  (in Relations table)" , "logische eigenschaften: asymmetrisch, katenativ, transitiv, mehr-eindeutig" , "unterordnende relation" ;
+	rdfs:label "manifests"@en .
 # 
-# http://www.example.org/lido#marks
+# http://lido.linguistic-lod.org/onlit#marks
 
 :marks a owl:ObjectProperty ;
 	rdfs:subPropertyOf :subordinatingRelation ;
 	a owl:AsymmetricProperty , owl:TransitiveProperty ;
-	rdfs:comment "lido database: marks  (in Relations table)" , "logische eigenschaften: asymmetrisch, katenativ, transitiv, mehr-eindeutig" , "unterordnende relation" .
+	rdfs:comment "lido database: marks  (in Relations table)" , "logische eigenschaften: asymmetrisch, katenativ, transitiv, mehr-eindeutig" , "unterordnende relation" ;
+	rdfs:label "marks"@en .
 # 
-# http://www.example.org/lido#non-stdTerm
+# http://lido.linguistic-lod.org/onlit#non-stdTerm
 
 :non-stdTerm a owl:ObjectProperty ;
 	rdfs:subPropertyOf :term-conceptRelation ;
-	rdfs:comment "lido database: non-std  (in Relations table)" .
+	rdfs:comment "lido database: non-std  (in Relations table)" ;
+	rdfs:label "non-standard term"@en .
 # 
-# http://www.example.org/lido#sdtTerm
+# http://lido.linguistic-lod.org/onlit#sdtTerm
 
 :sdtTerm a owl:ObjectProperty ;
 	rdfs:subPropertyOf :term-conceptRelation ;
-	rdfs:comment "lido database: std  (in Relations table)" .
+	rdfs:comment "lido database: std  (in Relations table)" ;
+	rdfs:label "standard term"@en .
 # 
-# http://www.example.org/lido#subordinatingRelation
+# http://lido.linguistic-lod.org/onlit#subordinatingRelation
 
 :subordinatingRelation a owl:ObjectProperty ;
-	rdfs:subPropertyOf :concept-conceptRelations ;
-	a owl:AsymmetricProperty , owl:TransitiveProperty .
+	rdfs:subPropertyOf :concept-conceptRelation ;
+	a owl:AsymmetricProperty , owl:TransitiveProperty ;
+	rdfs:label "subordinating relation"@en .
 # 
-# http://www.example.org/lido#term-conceptRelation
+# http://lido.linguistic-lod.org/onlit#term-conceptRelation
 
 :term-conceptRelation a owl:ObjectProperty ;
 	rdfs:domain :Term ;
-	rdfs:range :Concept .
+	rdfs:range :Concept ;
+	rdfs:label "term-concept relation"@en .
 # 
-# http://www.example.org/lido#term-termRelation
+# http://lido.linguistic-lod.org/onlit#term-termRelation
 
 :term-termRelation a owl:ObjectProperty ;
 	rdfs:domain :Term ;
-	rdfs:range :Term .
+	rdfs:range :Term ;
+	rdfs:label "term-term relation"@en .
 # 
 # 
 # 
@@ -209,54 +245,73 @@ xsd:date a rdfs:Datatype .
 # #################################################################
 # 
 # 
-# http://www.example.org/lido#analyticProcedure
+# http://lido.linguistic-lod.org/onlit#analyticProcedure
 
 :analyticProcedure a owl:DatatypeProperty ;
 	rdfs:domain :Concept ;
 	rdfs:range rdf:PlainLiteral ;
-	rdfs:comment "lido database: Analytic Procedures (in Concepts table)" .
+	rdfs:comment "lido database: Analytic Procedures (in Concepts table)" ;
+	rdfs:label "analytic procedure"@en .
 # 
-# http://www.example.org/lido#definition
+# http://lido.linguistic-lod.org/onlit#definition
 
 :definition a owl:DatatypeProperty ;
 	rdfs:domain :Concept ;
 	rdfs:range rdf:PlainLiteral ;
-	rdfs:comment "lido database: Definition (in Concept table)" .
+	rdfs:comment "lido database: Definition (in Concept table)" ;
+	rdfs:label "definition"@en .
 # 
-# http://www.example.org/lido#deliminationAndHistory
+# http://lido.linguistic-lod.org/onlit#deliminationAndHistory
 
 :deliminationAndHistory a owl:DatatypeProperty ;
 	rdfs:domain :Concept ;
 	rdfs:range rdf:PlainLiteral ;
-	rdfs:comment "lido database: Delimination & History (in Concepts table)" .
+	rdfs:comment "lido database: Delimination & History (in Concepts table)" ;
+	rdfs:label "delimination and history"@en .
 # 
-# http://www.example.org/lido#etymology
+# http://lido.linguistic-lod.org/onlit#etymology
 
 :etymology a owl:DatatypeProperty ;
 	rdfs:domain :Term ;
 	rdfs:range rdf:PlainLiteral ;
-	rdfs:comment "lido database: Etymology (in Terms table)" .
+	rdfs:comment "lido database: Etymology (in Terms table)" ;
+	rdfs:label "etymology"@en .
 # 
-# http://www.example.org/lido#example
+# http://lido.linguistic-lod.org/onlit#example
 
 :example a owl:DatatypeProperty ;
 	rdfs:domain :Concept ;
 	rdfs:range rdf:PlainLiteral ;
-	rdfs:comment "lido database: Examples (in Concepts table)" .
+	rdfs:comment "lido database: Examples (in Concepts table)" ;
+	rdfs:label "example"@en .
 # 
-# http://www.example.org/lido#lastEdit
+# http://lido.linguistic-lod.org/onlit#lastEdit
 
 :lastEdit a owl:DatatypeProperty ;
-	rdfs:domain :Concept ;
-	rdfs:range xsd:date ;
-	rdfs:comment "lido database: Date (in Concepts table)" .
+	rdfs:domain _:genid1 .
+
+_:genid1 a owl:Class ;
+	owl:unionOf _:genid3 .
+
+_:genid3 a rdf:List ;
+	rdf:first :Concept ;
+	rdf:rest _:genid2 .
+
+_:genid2 a rdf:List ;
+	rdf:first :Term ;
+	rdf:rest rdf:nil .
+
+:lastEdit rdfs:range xsd:date ;
+	rdfs:comment "lido database: Date (in Concepts table)" ;
+	rdfs:label "last edit"@en .
 # 
-# http://www.example.org/lido#phonmenology
+# http://lido.linguistic-lod.org/onlit#phonmenology
 
 :phonmenology a owl:DatatypeProperty ;
 	rdfs:domain :Concept ;
 	rdfs:range rdf:PlainLiteral ;
-	rdfs:comment "lido database: Phrnomenology (in Concepts table)" .
+	rdfs:comment "lido database: Phrnomenology (in Concepts table)" ;
+	rdfs:label "phenomenology"@en .
 # 
 # 
 # 
@@ -267,40 +322,70 @@ xsd:date a rdfs:Datatype .
 # #################################################################
 # 
 # 
-# http://www.example.org/lido#Abbreviation
+# http://lexvo.org/ontology#Language
+# 
+# http://lido.linguistic-lod.org/onlit#Abbreviation
 
 :Abbreviation a owl:Class ;
-	rdfs:comment "lido database: Abbrev. (in Terms table)" .
+	rdfs:comment "lido database: Abbrev. (in Terms table)" ;
+	rdfs:label "Abbreviation"@en .
 # 
-# http://www.example.org/lido#Concept
+# http://lido.linguistic-lod.org/onlit#Concept
 
 :Concept a owl:Class ;
-	rdfs:comment "lido database: Concept_name (in Concepts table)" .
+	rdfs:subClassOf _:genid4 .
+
+_:genid4 a owl:Restriction ;
+	owl:onProperty :hasID ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass :ConceptID .
+
+:Concept rdfs:comment "lido database: Concept_name (in Concepts table)" ;
+	rdfs:label "Concept"@en .
 # 
-# http://www.example.org/lido#ConceptID
+# http://lido.linguistic-lod.org/onlit#ConceptID
 
 :ConceptID a owl:Class ;
 	rdfs:subClassOf :Identifier ;
-	rdfs:comment "lido database: Concept_ID (in Concepts table)" .
+	rdfs:comment "lido database: Concept_ID (in Concepts table)" ;
+	rdfs:label "Concept Identifier"@en .
 # 
-# http://www.example.org/lido#Editor
+# http://lido.linguistic-lod.org/onlit#Editor
 
 :Editor a owl:Class ;
-	rdfs:comment "lido database: LastEditor (in Concepts table)" .
+	rdfs:comment "lido database: LastEditor (in Concepts table)" ;
+	rdfs:label "Editor"@en .
 # 
-# http://www.example.org/lido#Identifier
+# http://lido.linguistic-lod.org/onlit#Identifier
 
-:Identifier a owl:Class .
+:Identifier a owl:Class ;
+	rdfs:label "Identifier"@en .
 # 
-# http://www.example.org/lido#Term
+# http://lido.linguistic-lod.org/onlit#Term
 
 :Term a owl:Class ;
-	rdfs:comment "lido database: Ling. term (in Terms table)" .
+	rdfs:subClassOf _:genid5 .
+
+_:genid5 a owl:Restriction ;
+	owl:onProperty :hasID ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass :TermID .
+
+:Term rdfs:subClassOf _:genid6 .
+
+_:genid6 a owl:Restriction ;
+	owl:onProperty :term-conceptRelation ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass :Concept .
+
+:Term rdfs:comment "lido database: Ling. term (in Terms table)" ;
+	rdfs:label "Term"@en .
 # 
-# http://www.example.org/lido#TermID
+# http://lido.linguistic-lod.org/onlit#TermID
 
 :TermID a owl:Class ;
 	rdfs:subClassOf :Identifier ;
-	rdfs:comment "lido database: Term_ID (in Terms table)" .
+	rdfs:comment "lido database: Term_ID (in Terms table)" ;
+	rdfs:label "Term Identifier"@en .
 # 
 # Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi
