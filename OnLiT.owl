@@ -2,11 +2,27 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix lexvo: <http://lexvo.org/ontology#> .
 
-<http://lido.linguistic-lod.org/onlit#> a owl:Ontology .
+<http://lido.linguistic-lod.org/onlit#> a owl:Ontology, prov:Entity ;
+
+	owl:versionIRI <http://lido.linguistic-lod.org/onlit#/v1.0.0/> ;
+	rdfs:label "OnLiT"@en ;
+	dc:title "Ontology for Linguistic Terminology"@en ;
+	dc:identifier "http://lido.linguistic-lod.org/onlit#/v1.0.0/"^^xsd:anyURI ;
+	owl:versionInfo "Version 1.0, 2017. Created and maintained by Bettina Klimek."@en ;
+	dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+	dc:description """OnLiT is data model which can be used to represent linguistic terms and concepts in a semantically interrelated structure. Every terminological dataset evolving from OnLiT results in a data graph which is easy to navigate for human users, machine processable for semantic applications and will serve the purpose of directly and indirectly interrelating linguistic terms and concepts throughout the whole dataset.
+	
+The OnLiT model is based on the Linguistic Documentation (LiDo) Glossary of Linguistic Terms by Christian Lehmann."""@en ;
+	dc:creator <http://aksw.org/BettinaKlimek.rdf> ;
+	prov:wasDerivedFrom <http://linguistik.uni-regensburg.de:8080/lido/Lido> .
+	
 # 
 # 
 # #################################################################
