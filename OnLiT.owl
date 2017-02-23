@@ -63,7 +63,7 @@ lexvo:language a owl:ObjectProperty ;
 	a owl:AsymmetricProperty ;
 	rdfs:comment """States that a concept denotes a class which is a subclass of another class concept.
 
-E.g.adjective asAClassIsA part of speech (isAClassOf word)."""@en ;
+E.g.nomen adjectivum asAClassIsA pars orationis (isAClassOf word)."""@en ;
 	rdfs:label "as a class is a"@en .
 # 
 # http://lido.linguistic-lod.org/onlit#concept-conceptRelation
@@ -107,7 +107,7 @@ E.g. casus accusativus contrastsMinimallyWith nominative."""@en ;
 	a owl:AsymmetricProperty ;
 	rdfs:comment """States that a concept denotes a class.
 
-E.g. part of speech isAClassOf word."""@en ;
+E.g. pars orationis isAClassOf dictio."""@en ;
 	rdfs:label "is a class of"@en .
 # 
 # http://lido.linguistic-lod.org/onlit#isAKindOf
@@ -117,7 +117,7 @@ E.g. part of speech isAClassOf word."""@en ;
 	a owl:AsymmetricProperty , owl:TransitiveProperty ;
 	rdfs:comment """Is the most general subordinating relation, that states that a concept is a kind of another superordinating concept.
 
-E.g. linguistics isAKindOf human science."""@en ;
+E.g. linguistica isAKindOf scientia rerum humanarum."""@en ;
 	rdfs:label "is a kind of"@en .
 # 
 # http://lido.linguistic-lod.org/onlit#isAbstractNounOf
@@ -147,7 +147,7 @@ E.g. attribute isConcreteNounOf attributive."""@en ;
 	a owl:SymmetricProperty , owl:TransitiveProperty ;
 	rdfs:comment """States that a concept is somehow cross-related with another concept. 
 
-E.g. adjective isCross-RelatedWith attribute.
+E.g. nomen adjectivum isCross-RelatedWith attributum.
 
 This relation is reserved for those cases in which concepts are directly interrelated, but where this interrelation is not inferable from other relations in the dataset."""@en ;
 	rdfs:label "is cross-related with"@en .
@@ -169,7 +169,7 @@ E.g. allomorph isElementOfTheRelation allomorphy."""@en ;
 	a owl:AsymmetricProperty ;
 	rdfs:comment """States that a concept is an operator of another concept, which denotes an operation.
 
-E.g. affix isOperatorOf affixation."""@en ;
+E.g. affixum isOperatorOf affixio."""@en ;
 	rdfs:label "is operator of"@en .
 # 
 # http://lido.linguistic-lod.org/onlit#isPartOf
@@ -179,7 +179,7 @@ E.g. affix isOperatorOf affixation."""@en ;
 	a owl:AsymmetricProperty , owl:TransitiveProperty ;
 	rdfs:comment """States that a concept is a part of another concept. Concepts that are interrelated with this \"part-whole\" property will create a meronymy.
 
-E.g. case isPartOf declension isPartOf inflection isPartOf morphology isPartOf grammar isPartOf language system."""@en ;
+E.g. casus isPartOf declinatio isPartOf flexio isPartOf systema morphologicum isPartOf systema grammaticum  isPartOf systema linguae historicae."""@en ;
 	rdfs:label "is part of"@en .
 # 
 # http://lido.linguistic-lod.org/onlit#isProperty-AspectOf
@@ -189,7 +189,7 @@ E.g. case isPartOf declension isPartOf inflection isPartOf morphology isPartOf g
 	a owl:AsymmetricProperty ;
 	rdfs:comment """States that a concept denotes a characteristic aspect or property of its superordinating concept.
 
-E.g. arbitrariness isProperty-AspectOf linguistic sign."""@en ;
+E.g. arbitrarietas signi isProperty-AspectOf linguistic sign."""@en ;
 	rdfs:label "is property or aspect of"@en .
 # 
 # http://lido.linguistic-lod.org/onlit#isRepresentativeOf
@@ -199,7 +199,7 @@ E.g. arbitrariness isProperty-AspectOf linguistic sign."""@en ;
 	a owl:AsymmetricProperty ;
 	rdfs:comment """States that a person is a representative of a scientific discipline, movement or model.
 
-E.g. Saussure isRepresentativeOf Geneva School."""@en ;
+E.g. de Saussure isRepresentativeOf Geneva School."""@en ;
 	rdfs:label "is representative of"@en .
 # 
 # http://lido.linguistic-lod.org/onlit#isResultOf
@@ -209,7 +209,7 @@ E.g. Saussure isRepresentativeOf Geneva School."""@en ;
 	a owl:AsymmetricProperty ;
 	rdfs:comment """States that a concept is a result of another concept.
 
-E.g. loan word isResultOf borrowing."""@en ;
+E.g. vocabulum externum isResultOf mutatio."""@en ;
 	rdfs:label "is result of"@en .
 # 
 # http://lido.linguistic-lod.org/onlit#isSubjectOfDiscipline
@@ -219,7 +219,7 @@ E.g. loan word isResultOf borrowing."""@en ;
 	a owl:AsymmetricProperty ;
 	rdfs:comment """States that a concept that denotes a fraction of a scientific discipline is the subject of a concept denoting the scientific discipline or a theory or model thereof.
 
-E.g. lexicon isSubjectOfDiscipline lexycology."""@en ;
+E.g. systema vocabulorum isSubjectOfDiscipline lexycologia."""@en ;
 	rdfs:label "is subject of discipline"@en .
 # 
 # http://lido.linguistic-lod.org/onlit#lastEditor
@@ -237,7 +237,7 @@ E.g. lexicon isSubjectOfDiscipline lexycology."""@en ;
 	a owl:AsymmetricProperty , owl:TransitiveProperty ;
 	rdfs:comment """States that a concept denotes a grammatical or derivative category which manifests a concept that denotes a semantic, cognitive, communicative or functionally determined concept.
 
-E.g. tense manifests time."""@en ;
+E.g. tempus manifests time."""@en ;
 	rdfs:label "manifests"@en .
 # 
 # http://lido.linguistic-lod.org/onlit#marks
@@ -247,7 +247,7 @@ E.g. tense manifests time."""@en ;
 	a owl:AsymmetricProperty , owl:TransitiveProperty ;
 	rdfs:comment """States that a concept denotes a grammatical category which marks a concept that denotes a gramatical relation or function.
 
-E.g. accusative marks direct object."""@en ;
+E.g. casus accusativus marks objectum directum."""@en ;
 	rdfs:label "marks"@en .
 # 
 # http://lido.linguistic-lod.org/onlit#non-stdTerm
