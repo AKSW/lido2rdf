@@ -1,0 +1,31 @@
+version: '3'
+services:
+
+    # docker serving the sql export dump for sparqlify
+    postgres:
+        image: "postgres"
+        expose:
+            - 5432
+        ports:
+            - "54321:5432"
+        volumes:
+            # inject sql dump for direct import after init
+            - ${POSTGRES_WORKDIR}:/docker-entrypoint-initdb.d
+
+    # docker containing sparqlify runtime and endpoint provisioning
+    sparqlify:
+        build: ./sparqlify
+        depends_on:
+            - postgres
+        links:
+            - postgres:database
+        environment:
+            # announce postgresql jdbc driver for java compilation and execution
+            - CLASSPATH=/usr/lib/jvm/java-8-oracle/jre/lib/postgresql-42.1.1.jar:.
+        volumes:
+            # inject ontology and mapping files for sparqlify CLI usage
+           - ${SPARQLIFY_WORKDIR}:/data
+        expose:
+            - 7531
+        ports:
+            - "7531:7531"
