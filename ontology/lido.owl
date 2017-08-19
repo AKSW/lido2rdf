@@ -1,4 +1,4 @@
-@prefix : <http://example.org/lido#> .
+@prefix : <http://lidordf.aksw.org/lido.owl#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix ns0: <http://www.w3.org/ns/prov#> .
@@ -12,7 +12,7 @@
 @prefix lexvo: <http://lexvo.org/ontology#> .
 @base <http://example.org/lido/> .
 
-<http://example.org/lido#> rdf:type owl:Ontology ;
+<http://lidordf.aksw.org/lido.owl#> rdf:type owl:Ontology ;
                             owl:versionIRI <v1.0.0> ;
                             owl:versionInfo "Version 1.0, 2017. Created and maintained by Bettina Klimek."@en ;
                             dc:title "Ontology for describing the data of the \"Linguistic Documentation - Terminological und bibliographical database\" by Christian Lehmann."@en ;
@@ -44,7 +44,7 @@ xsd:date rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
-###  http://example.org/lido#abbreviation
+###  http://lidordf.aksw.org/lido.owl#abbreviation
 :abbreviation rdf:type owl:ObjectProperty ;
               rdfs:domain :Term ;
               rdfs:range :Abbreviation ;
@@ -53,7 +53,7 @@ xsd:date rdf:type rdfs:Datatype .
               <http://www.w3.org/2004/02/skos/core#altLabel> "" .
 
 
-###  http://example.org/lido#asAClassIsA
+###  http://lidordf.aksw.org/lido.owl#asAClassIsA
 :asAClassIsA rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf :subordinatingRelation ;
              rdf:type owl:AsymmetricProperty ;
@@ -65,7 +65,7 @@ class)"""@en ;
              rdfs:label "as a class is a"@en .
 
 
-###  http://example.org/lido#concept-conceptRelation
+###  http://lidordf.aksw.org/lido.owl#concept-conceptRelation
 :concept-conceptRelation rdf:type owl:ObjectProperty ,
                                   owl:AsymmetricProperty ;
                          rdfs:domain :Concept ;
@@ -74,7 +74,7 @@ class)"""@en ;
                          rdfs:label "concept-concept relation"@en .
 
 
-###  http://example.org/lido#contrastsMinimallyWith
+###  http://lidordf.aksw.org/lido.owl#contrastsMinimallyWith
 :contrastsMinimallyWith rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf :coordinatingRelation ;
                         rdf:type owl:SymmetricProperty ,
@@ -86,7 +86,7 @@ imperfectivus (imperfective)"""@en ;
                         rdfs:label "contrasts minimally with"@en .
 
 
-###  http://example.org/lido#coordinatingRelation
+###  http://lidordf.aksw.org/lido.owl#coordinatingRelation
 :coordinatingRelation rdf:type owl:ObjectProperty ;
                       rdfs:subPropertyOf :concept-conceptRelation ;
                       rdf:type owl:SymmetricProperty ,
@@ -95,7 +95,7 @@ imperfectivus (imperfective)"""@en ;
                       rdfs:label "coordinating relation"@en .
 
 
-###  http://example.org/lido#hasArea
+###  http://lidordf.aksw.org/lido.owl#hasArea
 :hasArea rdf:type owl:ObjectProperty ;
          rdfs:domain bibo:Book ;
          rdfs:range :Area ;
@@ -103,7 +103,7 @@ imperfectivus (imperfective)"""@en ;
          rdfs:label "has Area"@en .
 
 
-###  http://example.org/lido#hasAuthor
+###  http://lidordf.aksw.org/lido.owl#hasAuthor
 :hasAuthor rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf owl:topObjectProperty ;
            rdfs:domain bibo:Document ;
@@ -112,14 +112,14 @@ imperfectivus (imperfective)"""@en ;
            rdfs:label "has Author"@en .
 
 
-###  http://example.org/lido#hasBibRef
+###  http://lidordf.aksw.org/lido.owl#hasBibRef
 :hasBibRef rdf:type owl:ObjectProperty ;
            rdfs:domain :Concept ;
            rdfs:comment "States that a Cancept resource is topic of a bibliographic reference."@en ;
            rdfs:label "has bibliographic reference"@en .
 
 
-###  http://example.org/lido#hasLanguage
+###  http://lidordf.aksw.org/lido.owl#hasLanguage
 :hasLanguage rdf:type owl:ObjectProperty ;
              rdfs:domain bibo:Book ;
              rdfs:range lexvo:Language ;
@@ -127,7 +127,7 @@ imperfectivus (imperfective)"""@en ;
              rdfs:label "has Language"@en .
 
 
-###  http://example.org/lido#isAClassOf
+###  http://lidordf.aksw.org/lido.owl#isAClassOf
 :isAClassOf rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf :subordinatingRelation ;
             rdf:type owl:AsymmetricProperty ;
@@ -137,7 +137,7 @@ E.g. pars orationis (word class) isAClassOf dictio (word)"""@en ;
             rdfs:label "is a class of"@en .
 
 
-###  http://example.org/lido#isAKindOf
+###  http://lidordf.aksw.org/lido.owl#isAKindOf
 :isAKindOf rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf :subordinatingRelation ;
            rdf:type owl:AsymmetricProperty ,
@@ -149,7 +149,7 @@ E.g. linguistica (linguistics) isAKindOf scientia rerum humanarum (human science
            rdfs:label "is a kind of"@en .
 
 
-###  http://example.org/lido#isAbstractNounOf
+###  http://lidordf.aksw.org/lido.owl#isAbstractNounOf
 :isAbstractNounOf rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf :term-termRelation ;
                   rdf:type owl:AsymmetricProperty ;
@@ -159,7 +159,7 @@ E.g. agentivity isAbstractNounOf active."""@en ;
                   rdfs:label "is abstract noun of"@en .
 
 
-###  http://example.org/lido#isConcreteNounOf
+###  http://lidordf.aksw.org/lido.owl#isConcreteNounOf
 :isConcreteNounOf rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf :term-termRelation ;
                   rdf:type owl:AsymmetricProperty ;
@@ -169,7 +169,7 @@ E.g. attribute isConcreteNounOf attributive."""@en ;
                   rdfs:label "is concrete noun of"@en .
 
 
-###  http://example.org/lido#isCross-RelatedWith
+###  http://lidordf.aksw.org/lido.owl#isCross-RelatedWith
 :isCross-RelatedWith rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf :coordinatingRelation ;
                      rdf:type owl:SymmetricProperty ,
@@ -186,7 +186,7 @@ This relation is reserved for those cases in which concepts are directly interre
                      rdfs:label "is cross-related with"@en .
 
 
-###  http://example.org/lido#isElementOfTheRelation
+###  http://lidordf.aksw.org/lido.owl#isElementOfTheRelation
 :isElementOfTheRelation rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf :subordinatingRelation ;
                         rdf:type owl:AsymmetricProperty ;
@@ -197,7 +197,7 @@ E.g. allomorphum (allomorph) isElementOfTheRelation allomorphia (allomorphy)"""@
                         rdfs:label "is element of relation"@en .
 
 
-###  http://example.org/lido#isOperatorOf
+###  http://lidordf.aksw.org/lido.owl#isOperatorOf
 :isOperatorOf rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf :subordinatingRelation ;
               rdf:type owl:AsymmetricProperty ;
@@ -208,7 +208,7 @@ E.g. affixum (affix) isOperatorOf affxio (affxation)"""@en ;
               rdfs:label "is operator of"@en .
 
 
-###  http://example.org/lido#isPartOf
+###  http://lidordf.aksw.org/lido.owl#isPartOf
 :isPartOf rdf:type owl:ObjectProperty ;
           rdfs:subPropertyOf :subordinatingRelation ;
           rdf:type owl:AsymmetricProperty ,
@@ -223,7 +223,7 @@ systema morphologicum (morphology) isPartOf systema grammaticum (grammar)."""@en
           rdfs:label "is part of"@en .
 
 
-###  http://example.org/lido#isProperty-AspectOf
+###  http://lidordf.aksw.org/lido.owl#isProperty-AspectOf
 :isProperty-AspectOf rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf :subordinatingRelation ;
                      rdf:type owl:AsymmetricProperty ;
@@ -235,7 +235,7 @@ E.g. arbitrarietas signi (arbitrariness) isProperty-AspectOf signum linguae
                      rdfs:label "is property or aspect of"@en .
 
 
-###  http://example.org/lido#isRepresentativeOf
+###  http://lidordf.aksw.org/lido.owl#isRepresentativeOf
 :isRepresentativeOf rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf :subordinatingRelation ;
                     rdf:type owl:AsymmetricProperty ;
@@ -246,7 +246,7 @@ E.g. de Saussure (de Saussure) isRepresentativeOf schola Genavensis
                     rdfs:label "is representative of"@en .
 
 
-###  http://example.org/lido#isResultOf
+###  http://lidordf.aksw.org/lido.owl#isResultOf
 :isResultOf rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf :subordinatingRelation ;
             rdf:type owl:AsymmetricProperty ;
@@ -257,7 +257,7 @@ E.g. vocabulum externum (loan word) isResultOf mutuatio (borrowing)"""@en ;
             rdfs:label "is result of"@en .
 
 
-###  http://example.org/lido#isSubjectOfDiscipline
+###  http://lidordf.aksw.org/lido.owl#isSubjectOfDiscipline
 :isSubjectOfDiscipline rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf :subordinatingRelation ;
                        rdf:type owl:AsymmetricProperty ;
@@ -270,7 +270,7 @@ E.g. systema vocabulorum (lexicon) isSubjectOfDiscipline lexicologia
                        rdfs:label "is subject of discipline"@en .
 
 
-###  http://example.org/lido#lastEditor
+###  http://lidordf.aksw.org/lido.owl#lastEditor
 :lastEditor rdf:type owl:ObjectProperty ;
             rdfs:domain :Concept ;
             rdfs:range :Editor ;
@@ -278,7 +278,7 @@ E.g. systema vocabulorum (lexicon) isSubjectOfDiscipline lexicologia
             rdfs:label "last editor"@en .
 
 
-###  http://example.org/lido#manifests
+###  http://lidordf.aksw.org/lido.owl#manifests
 :manifests rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf :subordinatingRelation ;
            rdf:type owl:AsymmetricProperty ,
@@ -290,7 +290,7 @@ E.g. tempus grammaticum (tense) manifests tempus (time)"""@en ;
            rdfs:label "manifests"@en .
 
 
-###  http://example.org/lido#marks
+###  http://lidordf.aksw.org/lido.owl#marks
 :marks rdf:type owl:ObjectProperty ;
        rdfs:subPropertyOf :subordinatingRelation ;
        rdf:type owl:AsymmetricProperty ,
@@ -302,35 +302,35 @@ E.g. casus accusativus (accusative) marks objectum directum (direct object)"""@e
        rdfs:label "marks"@en .
 
 
-###  http://example.org/lido#non-stdTerm
+###  http://lidordf.aksw.org/lido.owl#non-stdTerm
 :non-stdTerm rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf :term-conceptRelation ;
              rdfs:comment "States that a term resource is the non-standard expression of a concept resource in a given language."@en ;
              rdfs:label "non-standard term"@en .
 
 
-###  http://example.org/lido#pubPlace
+###  http://lidordf.aksw.org/lido.owl#pubPlace
 :pubPlace rdf:type owl:ObjectProperty ;
           rdfs:range :PublicationPlace ;
           rdfs:comment "States the publication place (i.e. location)."@en ;
           rdfs:label "publication place"@en .
 
 
-###  http://example.org/lido#sdtTerm
+###  http://lidordf.aksw.org/lido.owl#sdtTerm
 :sdtTerm rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf :term-conceptRelation ;
          rdfs:comment "States that a term resource is the standard expression of a concept resource in a given language."@en ;
          rdfs:label "standard term"@en .
 
 
-###  http://example.org/lido#series
+###  http://lidordf.aksw.org/lido.owl#series
 :series rdf:type owl:ObjectProperty ;
         rdfs:range :Series ;
         rdfs:comment "States the series of a document."@en ;
         rdfs:label "series"@en .
 
 
-###  http://example.org/lido#subordinatingRelation
+###  http://lidordf.aksw.org/lido.owl#subordinatingRelation
 :subordinatingRelation rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf :concept-conceptRelation ;
                        rdf:type owl:AsymmetricProperty ,
@@ -339,7 +339,7 @@ E.g. casus accusativus (accusative) marks objectum directum (direct object)"""@e
                        rdfs:label "subordinating relation"@en .
 
 
-###  http://example.org/lido#term-conceptRelation
+###  http://lidordf.aksw.org/lido.owl#term-conceptRelation
 :term-conceptRelation rdf:type owl:ObjectProperty ;
                       rdfs:domain :Term ;
                       rdfs:range :Concept ;
@@ -347,7 +347,7 @@ E.g. casus accusativus (accusative) marks objectum directum (direct object)"""@e
                       rdfs:label "term-concept relation"@en .
 
 
-###  http://example.org/lido#term-termRelation
+###  http://lidordf.aksw.org/lido.owl#term-termRelation
 :term-termRelation rdf:type owl:ObjectProperty ;
                    rdfs:domain :Term ;
                    rdfs:range :Term ;
@@ -355,7 +355,7 @@ E.g. casus accusativus (accusative) marks objectum directum (direct object)"""@e
                    rdfs:label "term-term relation"@en .
 
 
-###  http://example.org/lido#texsort
+###  http://lidordf.aksw.org/lido.owl#texsort
 :texsort rdf:type owl:ObjectProperty ;
          rdfs:range :Textsort ;
          rdfs:comment "States the textsort of a document."@en ;
@@ -381,7 +381,7 @@ bibo:editor rdf:type owl:ObjectProperty .
 #    Data properties
 #################################################################
 
-###  http://example.org/lido#Doctype
+###  http://lidordf.aksw.org/lido.owl#Doctype
 :Doctype rdf:type owl:DatatypeProperty ;
          rdfs:subPropertyOf owl:topDataProperty ;
          rdfs:domain bibo:Document ;
@@ -390,7 +390,7 @@ bibo:editor rdf:type owl:ObjectProperty .
          rdfs:label "Document type"@en .
 
 
-###  http://example.org/lido#analyticProcedure
+###  http://lidordf.aksw.org/lido.owl#analyticProcedure
 :analyticProcedure rdf:type owl:DatatypeProperty ;
                    rdfs:domain :Concept ;
                    rdfs:range rdf:PlainLiteral ;
@@ -398,7 +398,7 @@ bibo:editor rdf:type owl:ObjectProperty .
                    rdfs:label "analytic procedure"@en .
 
 
-###  http://example.org/lido#definition
+###  http://lidordf.aksw.org/lido.owl#definition
 :definition rdf:type owl:DatatypeProperty ;
             rdfs:domain :Concept ;
             rdfs:range rdf:PlainLiteral ;
@@ -406,7 +406,7 @@ bibo:editor rdf:type owl:ObjectProperty .
             rdfs:label "definition"@en .
 
 
-###  http://example.org/lido#delimitationAndHistory
+###  http://lidordf.aksw.org/lido.owl#delimitationAndHistory
 :delimitationAndHistory rdf:type owl:DatatypeProperty ;
                         rdfs:domain :Concept ;
                         rdfs:range rdf:PlainLiteral ;
@@ -414,7 +414,7 @@ bibo:editor rdf:type owl:ObjectProperty .
                         rdfs:label "delimitation and history"@en .
 
 
-###  http://example.org/lido#description
+###  http://lidordf.aksw.org/lido.owl#description
 :description rdf:type owl:DatatypeProperty ;
              rdfs:domain bibo:Document ;
              rdfs:range rdf:PlainLiteral ;
@@ -422,7 +422,7 @@ bibo:editor rdf:type owl:ObjectProperty .
              rdfs:label "Description"@en .
 
 
-###  http://example.org/lido#etymology
+###  http://lidordf.aksw.org/lido.owl#etymology
 :etymology rdf:type owl:DatatypeProperty ;
            rdfs:domain :Term ;
            rdfs:range rdf:PlainLiteral ;
@@ -430,7 +430,7 @@ bibo:editor rdf:type owl:ObjectProperty .
            rdfs:label "etymology"@en .
 
 
-###  http://example.org/lido#example
+###  http://lidordf.aksw.org/lido.owl#example
 :example rdf:type owl:DatatypeProperty ;
          rdfs:domain :Concept ;
          rdfs:range rdf:PlainLiteral ;
@@ -438,21 +438,21 @@ bibo:editor rdf:type owl:ObjectProperty .
          rdfs:label "example"@en .
 
 
-###  http://example.org/lido#issue
+###  http://lidordf.aksw.org/lido.owl#issue
 :issue rdf:type owl:DatatypeProperty ;
        rdfs:range rdf:PlainLiteral ;
        rdfs:comment "The issue number of something that is printed or published and distributed, a given number of a periodical"@en ;
        rdfs:label "issue"@en .
 
 
-###  http://example.org/lido#lastEdit
+###  http://lidordf.aksw.org/lido.owl#lastEdit
 :lastEdit rdf:type owl:DatatypeProperty ;
           rdfs:range xsd:date ;
           rdfs:comment "States the date of the last edit of a concept or term entry."@en ;
           rdfs:label "last edit"@en .
 
 
-###  http://example.org/lido#phenonmenology
+###  http://lidordf.aksw.org/lido.owl#phenonmenology
 :phenonmenology rdf:type owl:DatatypeProperty ;
                 rdfs:domain :Concept ;
                 rdfs:range rdf:PlainLiteral ;
@@ -460,7 +460,7 @@ bibo:editor rdf:type owl:ObjectProperty .
                 rdfs:label "phenomenology"@en .
 
 
-###  http://example.org/lido#publicationYear
+###  http://lidordf.aksw.org/lido.owl#publicationYear
 :publicationYear rdf:type owl:DatatypeProperty ;
                  rdfs:domain bibo:Document ;
                  rdfs:range rdf:PlainLiteral ;
@@ -468,12 +468,12 @@ bibo:editor rdf:type owl:ObjectProperty .
                  rdfs:label "publication year"@en .
 
 
-###  http://example.org/lido#published
+###  http://lidordf.aksw.org/lido.owl#published
 :published rdf:type owl:DatatypeProperty ;
            rdfs:range xsd:boolean .
 
 
-###  http://example.org/lido#subtitle
+###  http://lidordf.aksw.org/lido.owl#subtitle
 :subtitle rdf:type owl:DatatypeProperty ;
           rdfs:subPropertyOf dct:title ;
           rdfs:domain bibo:Document ;
@@ -528,69 +528,69 @@ foaf:lastName rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
-###  http://example.org/lido#Abbreviation
+###  http://lidordf.aksw.org/lido.owl#Abbreviation
 :Abbreviation rdf:type owl:Class ;
               rdfs:comment "Abbreviations are short forms of linguistic terms which are useful for instance for morphemic glossing or part of speech annotations."@en ;
               rdfs:label "Abbreviation"@en .
 
 
-###  http://example.org/lido#Area
+###  http://lidordf.aksw.org/lido.owl#Area
 :Area rdf:type owl:Class ;
       rdfs:comment "A geographic, cultural-geographic or political area."@en ;
       rdfs:label "Area"@en .
 
 
-###  http://example.org/lido#Author
+###  http://lidordf.aksw.org/lido.owl#Author
 :Author rdf:type owl:Class ;
         rdfs:subClassOf foaf:Person ;
         rdfs:comment "An author of a document."@en ;
         rdfs:label "Author"@en .
 
 
-###  http://example.org/lido#Concept
+###  http://lidordf.aksw.org/lido.owl#Concept
 :Concept rdf:type owl:Class ;
          rdfs:comment "A  concept is a mental object which is realized by a linguistic sign, which is then the term associated with the concept."@en ;
          rdfs:label "Concept"@en .
 
 
-###  http://example.org/lido#Editor
+###  http://lidordf.aksw.org/lido.owl#Editor
 :Editor rdf:type owl:Class ;
         rdfs:subClassOf foaf:Person ;
         rdfs:comment "The editor is the person who edits a Concept or Term resource."@en ;
         rdfs:label "Editor"@en .
 
 
-###  http://example.org/lido#Journal
+###  http://lidordf.aksw.org/lido.owl#Journal
 :Journal rdf:type owl:Class ;
          rdfs:subClassOf bibo:Document ;
          rdfs:comment "A journal is a periodical publication in which scholarship relating to a particular academic discipline is published."@en ;
          rdfs:label "Journal"@en .
 
 
-###  http://example.org/lido#Language
+###  http://lidordf.aksw.org/lido.owl#Language
 :Language rdf:type owl:Class ;
           rdfs:label "Language"@en .
 
 
-###  http://example.org/lido#PublicationPlace
+###  http://lidordf.aksw.org/lido.owl#PublicationPlace
 :PublicationPlace rdf:type owl:Class ;
                   rdfs:comment "The location where a document is produced/published."@en ;
                   rdfs:label "Publication Place"@en .
 
 
-###  http://example.org/lido#Publisher
+###  http://lidordf.aksw.org/lido.owl#Publisher
 :Publisher rdf:type owl:Class ;
            rdfs:comment "A publisher is a person or company whose business is the publishing of books, periodicals, etc."@en ;
            rdfs:label "Publisher"@en .
 
 
-###  http://example.org/lido#Series
+###  http://lidordf.aksw.org/lido.owl#Series
 :Series rdf:type owl:Class ;
         rdfs:comment "A loose, thematic collection of documents."@en ;
         rdfs:label "Series"@en .
 
 
-###  http://example.org/lido#Term
+###  http://lidordf.aksw.org/lido.owl#Term
 :Term rdf:type owl:Class ;
       rdfs:subClassOf [ rdf:type owl:Restriction ;
                         owl:onProperty :term-conceptRelation ;
@@ -601,7 +601,7 @@ foaf:lastName rdf:type owl:DatatypeProperty ;
       rdfs:label "Term"@en .
 
 
-###  http://example.org/lido#Textsort
+###  http://lidordf.aksw.org/lido.owl#Textsort
 :Textsort rdf:type owl:Class ;
           rdfs:comment "The sort (i.e. the literary genre) of a document."@en ;
           rdfs:label "Textsort"@en .
