@@ -8,6 +8,8 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix lexvo: <http://lexvo.org/ontology#> .
 
+#####This file is referenced in the publication "OnLiT: An Ontology for Linguistic Terminology" by Klimek et al. but has been slightly changed. The latest version of the ontology is available here: https://github.com/AKSW/lido2rdf/commit/80ebb4e0b9d611d99a8ecf5ae1d69b3cbe332692. This file corresponds to http://lido.linguistic-lod.org/onlit#.(date: 18.11.2017)#####
+
 <http://lido.linguistic-lod.org/onlit#> a owl:Ontology ;
 	owl:versionIRI <http://lido.linguistic-lod.org/onlit#/v1.0.0/> ;
 	rdfs:label "OnLiT"@en ;
