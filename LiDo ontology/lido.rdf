@@ -1,0 +1,334 @@
+@prefix : <http://lidordf.aksw.org/ontology/> .
+@prefix onlit: <http://lido.linguistic-lod.org/onlit#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ns0: <http://www.w3.org/ns/prov#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix lexvo: <http://lexvo.org/ontology#> .
+
+<http://lidordf.aksw.org/ontology/> a owl:Ontology ;
+	owl:versionIRI :v1.0.0 ;
+	owl:imports <http://lido.linguistic-lod.org/onlit#/v1.0.0/> ;
+	owl:versionInfo "Version 1.0, 2017. Created and maintained by Bettina Klimek."@en ;
+	dc:title "LiDo Ontology"@en ;
+	ns0:wasDerivedFrom <http://linguistik.uni-regensburg.de:8080/lido/Lido> ;
+	dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+	rdfs:label "LiDo"@en ;
+	dc:identifier <http://lidordf.aksw.org/ontology/v1.0.0> ;
+	dc:creator <http://aksw.org/BettinaKlimek.rdf> ;
+	dc:description "Ontology for describing the data of the \"Linguistic Documentation - Terminological und bibliographical database\" by Christian Lehmann."@en .
+#
+#
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+#
+#
+# http://www.w3.org/2004/02/skos/core#altLabel
+
+<http://www.w3.org/2004/02/skos/core#altLabel> a owl:AnnotationProperty ;
+	rdfs:subPropertyOf rdfs:comment , rdfs:label .
+#
+#
+#
+# #################################################################
+# #
+# #    Datatypes
+# #
+# #################################################################
+#
+#
+# http://www.w3.org/2001/XMLSchema#date
+
+xsd:date a rdfs:Datatype .
+#
+#
+#
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+#
+#
+# http://lexvo.org/ontology#language
+
+lexvo:language a owl:ObjectProperty ;
+	rdfs:range lexvo:Language ;
+	rdfs:comment "States the language of the term."@en ;
+	rdfs:label "Language"@en .
+#
+# http://lidordf.aksw.org/ontology/hasArea
+
+:hasArea a owl:ObjectProperty ;
+	rdfs:domain bibo:Book ;
+	rdfs:range :Area ;
+	rdfs:comment "States an area related to the book."@en ;
+	rdfs:label "has Area"@en .
+#
+# http://lidordf.aksw.org/ontology/hasAuthor
+
+:hasAuthor a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain bibo:Document ;
+	rdfs:range :Author ;
+	rdfs:comment "States an author of a document."@en ;
+	rdfs:label "has Author"@en .
+#
+# http://lidordf.aksw.org/ontology/hasBibRef
+
+:hasBibRef a owl:ObjectProperty ;
+	rdfs:domain <http://lido.linguistic-lod.org/onlit#Concept> ;
+	rdfs:range bibo:Document ;
+	rdfs:comment "States that a Cancept resource is topic of a bibliographic reference."@en ;
+	rdfs:label "has bibliographic reference"@en .
+#
+# http://lidordf.aksw.org/ontology/hasLanguage
+
+:hasLanguage a owl:ObjectProperty ;
+	rdfs:domain bibo:Book ;
+	rdfs:range lexvo:Language ;
+	rdfs:comment "States the language in which the book is written."@en ;
+	rdfs:label "has Language"@en .
+#
+# http://lidordf.aksw.org/ontology/pubPlace
+
+:pubPlace a owl:ObjectProperty ;
+	rdfs:range :PublicationPlace ;
+	rdfs:comment "States the publication place (i.e. location)."@en ;
+	rdfs:label "publication place"@en .
+#
+# http://lidordf.aksw.org/ontology/series
+
+:series a owl:ObjectProperty ;
+	rdfs:range :Series ;
+	rdfs:comment "States the series of a document."@en ;
+	rdfs:label "series"@en .
+#
+# http://lidordf.aksw.org/ontology/texsort
+
+:texsort a owl:ObjectProperty ;
+	rdfs:range :Textsort ;
+	rdfs:comment "States the textsort of a document."@en ;
+	rdfs:label "textsort"@en .
+#
+# http://purl.org/dc/terms/publisher
+
+dct:publisher a owl:ObjectProperty .
+#
+# http://purl.org/ontology/bibo/editor
+
+bibo:editor a owl:ObjectProperty .
+#
+#
+#
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+#
+#
+# http://lidordf.aksw.org/ontology/description
+
+:description a owl:DatatypeProperty ;
+	rdfs:domain bibo:Document ;
+	rdfs:range rdf:PlainLiteral ;
+	rdfs:comment "Description of the document."@en ;
+	rdfs:label "Description"@en .
+#
+# http://lidordf.aksw.org/ontology/doctype
+
+:doctype a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain bibo:Document ;
+	rdfs:range rdf:PlainLiteral ;
+	rdfs:comment "Describes the category to which the document belongs."@en ;
+	rdfs:label "Document type"@en .
+#
+# http://lidordf.aksw.org/ontology/issue
+
+:issue a owl:DatatypeProperty ;
+	rdfs:range rdf:PlainLiteral ;
+	rdfs:comment "The issue number of something that is printed or published and distributed, a given number of a periodical"@en ;
+	rdfs:label "issue"@en .
+#
+# http://lidordf.aksw.org/ontology/publicationYear
+
+:publicationYear a owl:DatatypeProperty ;
+	rdfs:domain bibo:Document ;
+	rdfs:range rdf:PlainLiteral ;
+	rdfs:comment "Publication year of a document."@en ;
+	rdfs:label "publication year"@en .
+#
+# http://lidordf.aksw.org/ontology/published
+
+:published a owl:DatatypeProperty ;
+	rdfs:range xsd:boolean .
+#
+# http://lidordf.aksw.org/ontology/subtitle
+
+:subtitle a owl:DatatypeProperty ;
+	rdfs:subPropertyOf dct:title ;
+	rdfs:domain bibo:Document ;
+	rdfs:range rdf:PlainLiteral ;
+	rdfs:comment "The subtitle of a document."@en ;
+	rdfs:label "Subtitle"@en .
+#
+# http://purl.org/dc/terms/title
+
+dct:title a owl:DatatypeProperty ;
+	rdfs:label "Title"@en .
+#
+# http://purl.org/ontology/bibo/abstract
+
+bibo:abstract a owl:DatatypeProperty .
+#
+# http://purl.org/ontology/bibo/edition
+
+bibo:edition a owl:DatatypeProperty .
+#
+# http://purl.org/ontology/bibo/isbn
+
+bibo:isbn a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain bibo:Book ;
+	rdfs:range rdf:PlainLiteral ;
+	rdfs:comment "ISBN is a unique book identifier."@en ;
+	rdfs:label "isbn"@en .
+#
+# http://purl.org/ontology/bibo/pages
+
+bibo:pages a owl:DatatypeProperty .
+#
+# http://purl.org/ontology/bibo/volume
+
+bibo:volume a owl:DatatypeProperty .
+#
+# http://xmlns.com/foaf/0.1/firstName
+
+foaf:firstName a owl:DatatypeProperty ;
+	rdfs:domain foaf:Person ;
+	rdfs:range rdfs:Literal .
+#
+# http://xmlns.com/foaf/0.1/lastName
+
+foaf:lastName a owl:DatatypeProperty ;
+	rdfs:domain foaf:Person ;
+	rdfs:range rdfs:Literal .
+#
+#
+#
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+#
+#
+# http://lexvo.org/ontology#Language
+
+lexvo:Language a owl:Class .
+#
+# http://lido.linguistic-lod.org/onlit#Editor
+
+<http://lido.linguistic-lod.org/onlit#Editor> rdfs:subClassOf foaf:Person .
+#
+# http://lidordf.aksw.org/ontology/Area
+
+:Area a owl:Class ;
+	rdfs:comment "A geographic, cultural-geographic or political area."@en ;
+	rdfs:label "Area"@en .
+#
+# http://lidordf.aksw.org/ontology/Author
+
+:Author a owl:Class ;
+	rdfs:subClassOf foaf:Person ;
+	rdfs:comment "An author of a document."@en ;
+	rdfs:label "Author"@en .
+#
+# http://lidordf.aksw.org/ontology/Journal
+
+:Journal a owl:Class ;
+	rdfs:subClassOf bibo:Document ;
+	rdfs:comment "A journal is a periodical publication in which scholarship relating to a particular academic discipline is published."@en ;
+	rdfs:label "Journal"@en .
+#
+# http://lidordf.aksw.org/ontology/Language
+
+:Language a owl:Class ;
+	rdfs:label "Language"@en .
+#
+# http://lidordf.aksw.org/ontology/PublicationPlace
+
+:PublicationPlace a owl:Class ;
+	rdfs:comment "The location where a document is produced/published."@en ;
+	rdfs:label "Publication Place"@en .
+#
+# http://lidordf.aksw.org/ontology/Publisher
+
+:Publisher a owl:Class ;
+	rdfs:comment "A publisher is a person or company whose business is the publishing of books, periodicals, etc."@en ;
+	rdfs:label "Publisher"@en .
+#
+# http://lidordf.aksw.org/ontology/Series
+
+:Series a owl:Class ;
+	rdfs:comment "A loose, thematic collection of documents."@en ;
+	rdfs:label "Series"@en .
+#
+# http://lidordf.aksw.org/ontology/Textsort
+
+:Textsort a owl:Class ;
+	rdfs:comment "The sort (i.e. the literary genre) of a document."@en ;
+	rdfs:label "Textsort"@en .
+#
+# http://purl.org/dc/terms/Agent
+
+dct:Agent a owl:Class ;
+	owl:equivalentClass foaf:Agent .
+#
+# http://purl.org/ontology/bibo/Book
+
+bibo:Book a owl:Class ;
+	rdfs:subClassOf bibo:Document .
+#
+# http://purl.org/ontology/bibo/Document
+
+bibo:Document a owl:Class .
+#
+# http://www.w3.org/ns/prov#Entity
+
+ns0:Entity a owl:Class .
+#
+# http://xmlns.com/foaf/0.1/Agent
+
+foaf:Agent a owl:Class .
+#
+# http://xmlns.com/foaf/0.1/Person
+
+foaf:Person a owl:Class ;
+	rdfs:subClassOf foaf:Agent .
+#
+#
+#
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+#
+#
+# http://lido.linguistic-lod.org/onlit#
+
+<http://lido.linguistic-lod.org/onlit#> a owl:NamedIndividual , ns0:Entity .
+#
+# Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi
