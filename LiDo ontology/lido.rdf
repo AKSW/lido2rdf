@@ -113,9 +113,9 @@ lexvo:language a owl:ObjectProperty ;
 	rdfs:comment "States the series of a document."@en ;
 	rdfs:label "series"@en .
 #
-# http://lidordf.aksw.org/ontology/texsort
+# http://lidordf.aksw.org/ontology/textsort
 
-:texsort a owl:ObjectProperty ;
+:textsort a owl:ObjectProperty ;
 	rdfs:range :Textsort ;
 	rdfs:comment "States the textsort of a document."@en ;
 	rdfs:label "textsort"@en .
