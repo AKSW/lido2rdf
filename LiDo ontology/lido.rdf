@@ -89,9 +89,17 @@ xsd:date a rdfs:Datatype .
 
 :hasBibRef a owl:ObjectProperty ;
 	rdfs:domain onlit:Concept ;
-	rdfs:range bibo:Document ;
+	rdfs:range lido:BibliographicReference ;
 	rdfs:comment "States that a Cancept resource is topic of a bibliographic reference."@en ;
 	rdfs:label "has bibliographic reference"@en .
+#
+# http://lidordf.aksw.org/ontology/inDocument
+
+:inDocument a owl:ObjectProperty ;
+	rdfs:domain lido:BibliographicReference ;
+	rdfs:range bibo:Document ;
+	rdfs:comment ""@en ;
+	rdfs:label "in document"@en .
 #
 # http://lidordf.aksw.org/ontology/inLanguage
 
@@ -258,6 +266,12 @@ onlit:Editor rdfs:subClassOf foaf:Person .
 	rdfs:subClassOf foaf:Person ;
 	rdfs:comment "An author of a document."@en ;
 	rdfs:label "Author"@en .
+#
+# http://lidordf.aksw.org/ontology/BibliographicReference
+
+:BibliographicReference a owl:Class ;
+	rdfs:comment ""@en ;
+	rdfs:label "Bibliographic Reference"@en .
 #
 # http://lidordf.aksw.org/ontology/Journal
 
