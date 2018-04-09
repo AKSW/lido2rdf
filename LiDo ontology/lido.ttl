@@ -89,16 +89,16 @@ xsd:date a rdfs:Datatype .
 
 :hasBibRef a owl:ObjectProperty ;
 	rdfs:domain onlit:Concept ;
-	rdfs:range lido:BibliographicReference ;
-	rdfs:comment "States that a Cancept resource is topic of a bibliographic reference."@en ;
+	rdfs:range :BibliographicReference ;
+	rdfs:comment "States that a Concept resource is topic of a bibliographic reference."@en ;
 	rdfs:label "has bibliographic reference"@en .
 #
 # http://lidordf.aksw.org/ontology/inDocument
 
 :inDocument a owl:ObjectProperty ;
-	rdfs:domain lido:BibliographicReference ;
+	rdfs:domain :BibliographicReference ;
 	rdfs:range bibo:Document ;
-	rdfs:comment ""@en ;
+	rdfs:comment "States that a bibliographic reference resource is contained in a specific document (as a section of it)"@en ;
 	rdfs:label "in document"@en .
 #
 # http://lidordf.aksw.org/ontology/inLanguage
@@ -270,8 +270,15 @@ onlit:Editor rdfs:subClassOf foaf:Person .
 # http://lidordf.aksw.org/ontology/BibliographicReference
 
 :BibliographicReference a owl:Class ;
-	rdfs:comment ""@en ;
+	rdfs:comment "Some bibliographic reference that may be specified for pages, chapters or parts of that document. This class contains instances that are used to relate concept resources to specific positions in books or journals."@en ;
 	rdfs:label "Bibliographic Reference"@en .
+#
+# http://lidordf.aksw.org/ontology/Editor
+
+:Editor a owl:Class ;
+	rdfs:subClassOf foaf:Agent ;
+	rdfs:comment "The editor(s) of a document."@en ;
+	rdfs:label "Editor"@en .
 #
 # http://lidordf.aksw.org/ontology/Journal
 
