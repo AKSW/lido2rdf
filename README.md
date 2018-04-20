@@ -8,4 +8,4 @@ The following two publications can be consulted for further reading, i.e. the pr
 
 Klimek, B., McCrae, J. P., Lehmann, C., Chiarcos, C., Hellmann, S.: **[OnLiT: An Ontology for Linguistic Terminology.](https://svn.aksw.org/papers/2017/LDK_OnLiT/public.pdf)** In: International Conference on Language, Data and Knowledge, (pp. 42-57). Springer, Cham, 2017.
 
-Klimek, B., Schädlich, R., Kröger, D., Knese, E., Elßmann, B.: **LiDo RDF: From a Relational Database to a Linked Data Graph of Linguistic Terms and Bibliographic Data.** In: 11th International Conference on Language Resources and Evaluation (LREC 2018). 2018. 
+Klimek, B., Schädlich, R., Kröger, D., Knese, E., Elßmann, B.: **[LiDo RDF: From a Relational Database to a Linked Data Graph of Linguistic Terms and Bibliographic Data.](http://svn.aksw.org/papers/2018/LREC18_LiDo_Dataset/public.pdf)** In: 11th International Conference on Language Resources and Evaluation (LREC 2018). 2018. 
